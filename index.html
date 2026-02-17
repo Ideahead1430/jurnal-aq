@@ -406,8 +406,69 @@
                     <div id="entriesContainer"></div>
                 </div>
 
-                <!-- Catatan Umum & Al-Quran tab kekal sama seperti kod asal anda -->
-                <!-- ... (saya singkatkan di sini supaya tidak terlalu panjang – salin bahagian public-tab & quran-tab dari kod asal anda jika perlu) -->
+                <!-- Public Entries Tab -->
+                <div class="tab-content" id="public-tab">
+                    <div class="public-entries-header">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Catatan Umum
+                        </h3>
+                        <p style="margin-top: 5px; opacity: 0.9;">Perkongsian dari semua pengguna</p>
+                    </div>
+                    <div class="public-entries-container" id="publicEntriesContainer">
+                        <div class="empty-state">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+                            </svg>
+                            <p>Belum ada catatan awam</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Catatan awam akan dipaparkan di sini</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quran Tab -->
+                <div class="tab-content" id="quran-tab">
+                    <!-- Quran Controls -->
+                    <div class="quran-controls">
+                        <h3>Pilih Surah dan Ayat</h3>
+                        <div class="control-row">
+                            <div class="control-group">
+                                <label for="surahSelect">Surah</label>
+                                <select id="surahSelect" class="form-control">
+                                    <option value="">Pilih Surah...</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label for="ayatIndex">Ayat</label>
+                                <input type="number" id="ayatIndex" class="form-control" min="1" value="1">
+                            </div>
+                        </div>
+                        <button class="btn" id="loadAyatBtn">Muatkan Ayat</button>
+                        <div class="quran-nav">
+                            <button class="btn-nav" id="prevAyatBtn" disabled>← Sebelumnya</button>
+                            <button class="btn-nav" id="nextAyatBtn" disabled>Seterusnya →</button>
+                        </div>
+                    </div>
+
+                    <!-- Quran Display -->
+                    <div class="quran-display">
+                        <div id="ayat-display">
+                            <div class="empty-state">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                <p>Pilih surah dan ayat untuk memulakan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
     </div>
@@ -459,7 +520,7 @@
         // ────────────────────────────────────────────────
         // Firebase Config (dari anda)
         const firebaseConfig = {
-            apiKey: "AIzaSyD2bg7IeRz4bR7dMkTHJo9T_Macy16COpc",
+            apiKey: "0",
             authDomain: "jurnal-al-quran-6ca7c.firebaseapp.com",
             projectId: "jurnal-al-quran-6ca7c",
             storageBucket: "jurnal-al-quran-6ca7c.firebasestorage.app",
